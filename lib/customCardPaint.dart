@@ -19,14 +19,23 @@ class customCardPaint extends CustomPainter {
     ]);
 
     var path = Path()
-      ..moveTo(0, size.height)
+      // ..moveTo(0, size.height)
+      // ..lineTo(size.width - radius, size.height)
+      // ..quadraticBezierTo(
+      //     size.width, size.height, size.width, size.height - radius)
+      // ..lineTo(size.width, radius)
+      // ..quadraticBezierTo(size.width, 0, size.width - 0.7*radius, 0)
+      // ..lineTo(size.width - 0.9 * radius,0)
+      // ..quadraticBezierTo(radius, 1.5 * radius, 2, size.height)
+      // ..close();
+        ..moveTo(0, size.height)
       ..lineTo(size.width - radius, size.height)
       ..quadraticBezierTo(
-          size.width, size.height, size.width, size.height -0.1* radius)
-      ..lineTo(size.width, radius-17)
-      ..quadraticBezierTo(size.width, 0, size.width - 0.7*radius, 0)
-      ..lineTo(size.width - 0.9 * radius,0)
-      ..quadraticBezierTo(-radius, 1.5 * radius, 2, size.height)
+          size.width, size.height, size.width, size.height - radius)
+      ..lineTo(size.width, radius)
+      ..quadraticBezierTo(size.width, 0, size.width - radius, 0)
+      ..lineTo(size.width - 1.5 * radius, 0)
+      ..quadraticBezierTo(-radius, 2 * radius, 0, size.height)
       ..close();
     canvas.drawPath(path, paint);
   }

@@ -17,10 +17,10 @@ class BookDetailsPage extends StatelessWidget {
         decoration:const BoxDecoration(
           gradient:LinearGradient(
            colors:[
-             Color.fromARGB(255, 195, 124, 133),
-             Color.fromARGB(255, 64, 188, 255),
-             Color.fromARGB(255, 182, 64, 255),
-             Color.fromARGB(255, 224, 153, 109),
+             Color.fromARGB(255, 80, 180, 213),
+             Color.fromARGB(255, 154, 188, 204),
+             Color.fromARGB(255, 147, 118, 233),
+             Color.fromARGB(255, 152, 213, 210),
              
              ],
              begin:Alignment.bottomLeft,
