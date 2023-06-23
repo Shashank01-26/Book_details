@@ -31,10 +31,11 @@ class RatingBar extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: List.generate(rating.floor(), (index) {
-        return Icon(
+        return const Icon(
           Icons.star,
           color: Colors.amberAccent,
           size: 16,
+          
         );
       }),
     );
