@@ -436,7 +436,8 @@ class _MyHomepageState extends State<MyHomepage> {
           IconButton(
               icon: const Icon(Icons.search),
               onPressed: () {
-                showSearch(context: context, delegate: BookSearch());
+                // modification done just now passed values
+                showSearch(context: context, delegate: BookSearch(titles:titles,docs:docs));
               }),
         ],
         title: const Text("Book List"),

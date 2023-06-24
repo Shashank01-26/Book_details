@@ -237,7 +237,6 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class BookDetailsPage extends StatelessWidget {
   @override
