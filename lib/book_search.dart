@@ -5,14 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class BookSearch extends SearchDelegate<String> {
-  final List<String> titles;
+  // final List<String> titles;
   final List<dynamic> docs;
+  
+  
   BookSearch({
-    required this.titles,
-    required this.docs,
+    // required this.titles,
+    required this.docs,  
+      
   });
-  late Future<List<String>> _responseList;
-
+  late Future<List<String>> _responseList = Future.value([]);
+ 
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
@@ -39,20 +42,45 @@ class BookSearch extends SearchDelegate<String> {
   @override
   Widget buildResults(BuildContext context) {
     return FutureBuilder(
-        future: _responseList,
-        builder: (context, snapshot) {
-          print("Mylog ${snapshot.data}");
-          return ListView.builder(
-            itemCount: snapshot.data?.length ?? 0,
-            itemBuilder: (context, index) {
-             final title = snapshot.data;
+        future: _responseList, builder: (context, snapshot) {
+      if (snapshot.hasData && snapshot.data != null) {
+        final titleList = snapshot.data as List<String>;
+        return ListView.builder(
+          itemCount: titleList.length,
+          itemBuilder: (context, index) {
+            final title = snapshot.data;
+            return reUseCard(
+              Colors.tealAccent,
+              4.0,
+              title!,
+              docs,
+              index,
+              context,
+            );
+          },
+        );
+      } else {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      }
+    },
+  );
+}
+  //       builder: (context, snapshot) {
+
+  //         print("Mylog ${snapshot.data}");
+  //         return ListView.builder(
+  //           itemCount: snapshot.data?.length ?? 0,
+  //           itemBuilder: (context, index) {
+  //            final title = snapshot.data;
               
-              return reUseCard(
-                  Colors.tealAccent, 4.0,title!, docs, index, context);
-            },
-          );
-        });
-  }
+  //             return reUseCard(
+  //                 Colors.tealAccent, 4.0,title!, docs, index, context);
+  //           },
+  //         );
+  //       });
+  // }
 
   @override
   Widget buildSuggestions(BuildContext context) {

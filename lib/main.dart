@@ -420,6 +420,8 @@ class _MyHomepageState extends State<MyHomepage> {
     });
   }
 
+
+
   @override
   void dispose() {
     _debounceTimer?.cancel();
@@ -437,7 +439,7 @@ class _MyHomepageState extends State<MyHomepage> {
               icon: const Icon(Icons.search),
               onPressed: () {
                 // modification done just now passed values
-                showSearch(context: context, delegate: BookSearch(titles:titles,docs:docs));
+                showSearch(context: context, delegate: BookSearch(docs:docs));
               }),
         ],
         title: const Text("Book List"),
